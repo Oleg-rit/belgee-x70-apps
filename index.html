@@ -145,7 +145,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
   <h1>Своя панель для <span>Belgee X70</span></h1>
   <p class="lead">Нижняя панель, окно климата, центр управления и заставка для штатного ГУ. Всё основное делается прямо с панели, без перехода по экранам, в том числе поверх Android Auto.</p>
   <div class="btns">
-    <a class="btn primary" href="#download">Скачать Panel X70 <small>1.21</small></a>
+    <a class="btn primary" href="#download">Скачать Panel X70 <small>1.22</small></a>
     <a class="btn" href="#install">Как установить</a>
   </div>
   <p class="note" id="dlTotal" hidden></p>
@@ -287,7 +287,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
       <li><b>«Не забудьте телефон в салоне»</b> — живой голос сразу после остановки двигателя, если телефон подключён по Bluetooth (1.15).</li>
       <li><b>Bluetooth после запуска ГУ</b> — всегда включён, всегда выключен, как в системе или спрашивать (1.13).</li>
       <li><b>Bluetooth-музыка сама</b> — когда телефон подключил музыку, сразу открывается штатный плеер (1.16).</li>
-      <li><b>Пустая кнопка на руле</b> — подогрев руля, сиденье, зимний режим, «Назад» или тема приборки.</li>
+      <li><b>Пустая кнопка на руле</b> — подогрев руля, сиденье, зимний режим, «Назад», тема приборки или старт-стоп (для полного привода, 1.22, <span class="badge new">на проверке</span>).</li>
       <li><b>Тема приборки S / C / E / D</b> — кнопкой на панели или в настройках.</li>
       <li><b>Перезагрузка ГУ</b> одной кнопкой вместо 15 секунд на сенсоре: перезапускается только ГУ, машина работает как обычно (1.13).</li>
     </ul>
@@ -309,7 +309,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
     <p class="sub">Ссылки всегда ведут на последнюю версию. Если на ГУ нет установщика APK, берите архив для флешки.</p>
     <div class="apps">
       <div class="app">
-        <h3>Panel X70 <span class="badge ok">1.21</span></h3>
+        <h3>Panel X70 <span class="badge ok">1.22</span></h3>
         <p>Нижняя панель, климат, центр управления, подогревы, заставка.</p>
         <div class="files">
           <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/PanelX70-install.zip">Флешка: установить или обновить <span>ZIP · 195 КБ</span></a>
@@ -389,7 +389,9 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
   <div class="wrap">
     <h2>История версий</h2>
     <p class="sub">Коротко, что появлялось в Panel X70.</p>
-    <details open><summary>1.21 — «Заставка» и «Отключить экран» в центре управления</summary>
+    <details open><summary>1.22 — старт-стоп на пустой кнопке руля <span class="badge new">на проверке</span></summary>
+      <ul><li>Для полного привода: пустая кнопка руля переключает старт-стоп той же командой, что значок на панели.</li><li>После нажатия на экране пишется, включён он или выключен, по ответу машины.</li></ul></details>
+    <details><summary>1.21 — «Заставка» и «Отключить экран» в центре управления</summary>
       <ul><li>Две новые плитки: заставка с часами и чёрный экран с подсветкой на минимум.</li><li>Если стоит Экран X70, кнопкой питания управляет он.</li></ul></details>
     <details><summary>1.20 — окно климата</summary>
       <ul><li>Долгое нажатие на значок обдува: весь климат в одном окне, включая AQS.</li></ul></details>
@@ -483,6 +485,7 @@ var STATUS = [
   ['ok',  'Окно климата',               'f-climate', '1.20'],
   ['ok',  'Логотип закрывает окна',     'f-control', '1.19'],
   ['ok',  'Заставка / Отключить экран', 'f-control', '1.21'],
+  ['new', 'Старт-стоп на кнопке руля',  'panel',     '1.22'],
   ['ok',  'Экран с часами без руля',    'f-clock',   '1.18'],
   ['ok',  'Напоминание о телефоне',     'panel',     '1.15'],
   ['ok',  'Bluetooth после запуска',    'panel',     '1.13'],
@@ -492,7 +495,7 @@ var box = document.getElementById('statusList');
 STATUS.forEach(function (s) {
   var d = document.createElement('div');
   d.className = 'st';
-  d.innerHTML = '<i class="badge ' + s[0] + '">' + (s[0] === 'ok' ? 'Проверено' : 'Проверяем') + '</i>' +
+  d.innerHTML = '<i class="badge ' + s[0] + '">' + (s[0] === 'ok' ? 'Проверено' : 'На проверке') + '</i>' +
     '<div><a href="#' + s[2] + '">' + s[1] + '</a>' + (s[3] ? '<small>версия ' + s[3] + '</small>' : '') + '</div>';
   box.appendChild(d);
 });
