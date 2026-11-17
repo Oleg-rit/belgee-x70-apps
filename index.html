@@ -102,6 +102,8 @@ details li{margin:3px 0}
 .mock .d{font-size:13px;color:#8f8b80;margin-top:6px}
 .mock em{position:absolute;left:0;right:0;bottom:-26px;text-align:center;font-style:normal;font-size:14px;color:var(--muted)}
 .mock.off{background:#030303}
+.dl{font-size:13px;font-weight:500;color:var(--muted);margin-left:auto}
+.dl b{color:var(--fg)}
 footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:14px}
 
 dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh}
@@ -146,6 +148,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
     <a class="btn primary" href="#download">Скачать Panel X70 <small>1.21</small></a>
     <a class="btn" href="#install">Как установить</a>
   </div>
+  <p class="note" id="dlTotal" hidden></p>
   <p class="note">Для ГУ с прошивкой <code>SW0NL3B0411H5177.00115</code> (Android 5.1). Ставится и удаляется с флешки, системные файлы не трогает.</p>
   <figure class="shot" style="margin-bottom:0"><img src="img/hero.jpg" width="1200" height="459" alt="ГУ Belgee X70 с Android Auto и панелью Panel X70 внизу"></figure>
 </div>
@@ -480,7 +483,7 @@ var STATUS = [
   ['ok',  'Окно климата',               'f-climate', '1.20'],
   ['ok',  'Логотип закрывает окна',     'f-control', '1.19'],
   ['ok',  'Заставка / Отключить экран', 'f-control', '1.21'],
-  ['ok',  'Экран с часами без руля',    'f-clock',   '1.18']
+  ['ok',  'Экран с часами без руля',    'f-clock',   '1.18'],
   ['ok',  'Напоминание о телефоне',     'panel',     '1.15'],
   ['ok',  'Bluetooth после запуска',    'panel',     '1.13'],
   ['ok',  'Bluetooth-музыка сама',      'panel',     '1.16']
@@ -502,6 +505,43 @@ document.querySelectorAll('.shot img').forEach(function (im) {
   });
 });
 dlg.addEventListener('click', function () { dlg.close(); });
+
+// Счётчик скачиваний: GitHub считает загрузки каждого файла во всех релизах.
+// Удаляющие флешки (-remove.zip) не считаем, только установку и APK.
+(function () {
+  function times(n) {
+    var a = n % 10, b = n % 100;
+    return n + ' ' + (a >= 2 && a <= 4 && (b < 12 || b > 14) ? 'раза' : 'раз');
+  }
+  fetch('https://api.github.com/repos/Oleg-rit/belgee-x70-apps/releases?per_page=100')
+    .then(function (r) { if (!r.ok) throw r.status; return r.json(); })
+    .then(function (rels) {
+      var count = {};
+      rels.forEach(function (rel) {
+        (rel.assets || []).forEach(function (a) { count[a.name] = (count[a.name] || 0) + a.download_count; });
+      });
+      var panel = 0;
+      document.querySelectorAll('.app').forEach(function (card) {
+        var sum = 0, any = false;
+        card.querySelectorAll('.files a[href*="/download/"]').forEach(function (a) {
+          var f = a.href.split('/').pop();
+          if (/-remove\.zip$/.test(f)) return;
+          any = true; sum += count[f] || 0;
+        });
+        if (/PanelX70/.test(card.innerHTML)) panel = sum;
+        if (!any || !sum) return; // пока ноль — не показываем
+        var h = card.querySelector('h3'), s = document.createElement('span');
+        s.className = 'dl'; s.innerHTML = 'скачали <b>' + times(sum) + '</b>';
+        h.appendChild(s);
+      });
+      if (panel > 0) {
+        var t = document.getElementById('dlTotal');
+        t.innerHTML = 'Panel X70 уже скачали <b style="color:var(--gold)">' + times(panel) + '</b>.';
+        t.hidden = false;
+      }
+    })
+    .catch(function () { /* нет связи с GitHub: просто без счётчика */ });
+})();
 </script>
 </body>
 </html>
