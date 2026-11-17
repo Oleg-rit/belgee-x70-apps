@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Приложения для Belgee X70</title>
-<meta name="description" content="Panel X70 и Экран X70: своя нижняя панель, окно климата, центр управления и заставка для ГУ Belgee X70. Скачать и установить с флешки.">
+<meta name="description" content="Panel X70: своя нижняя панель, окно климата, центр управления и заставка для ГУ Belgee X70. Скачать и установить с флешки.">
 <meta property="og:title" content="Приложения для Belgee X70">
 <meta property="og:description" content="Своя нижняя панель, окно климата, центр управления и заставка для ГУ Belgee X70.">
 <meta property="og:image" content="img/hero.jpg">
@@ -102,7 +102,6 @@ details li{margin:3px 0}
 .mock .d{font-size:13px;color:#8f8b80;margin-top:6px}
 .mock em{position:absolute;left:0;right:0;bottom:-26px;text-align:center;font-style:normal;font-size:14px;color:var(--muted)}
 .mock.off{background:#030303}
-#screen .media{margin-bottom:26px}
 footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:14px}
 
 dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh}
@@ -131,7 +130,6 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
     <nav>
       <a href="#status">Что работает</a>
       <a href="#panel">Panel X70</a>
-      <a href="#screen">Экран X70</a>
       <a href="#download">Скачать</a>
       <a href="#install">Установка</a>
       <a href="#versions">Версии</a>
@@ -146,7 +144,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
   <p class="lead">Нижняя панель, окно климата, центр управления и заставка для штатного ГУ. Всё основное делается прямо с панели, без перехода по экранам, в том числе поверх Android Auto.</p>
   <div class="btns">
     <a class="btn primary" href="#download">Скачать Panel X70 <small>1.21</small></a>
-    <a class="btn" href="#screen">Экран X70 <small>0.1</small></a>
+    <a class="btn" href="#install">Как установить</a>
   </div>
   <p class="note">Для ГУ с прошивкой <code>SW0NL3B0411H5177.00115</code> (Android 5.1). Ставится и удаляется с флешки, системные файлы не трогает.</p>
   <figure class="shot" style="margin-bottom:0"><img src="img/hero.jpg" width="1200" height="459" alt="ГУ Belgee X70 с Android Auto и панелью Panel X70 внизу"></figure>
@@ -276,7 +274,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
           <li>Штатно любая кнопка руля (громкость, треки) будит экран. С галочкой в настройках — нет.</li>
           <li>Разбудить: коснуться экрана или снова нажать кнопку питания.</li>
           <li>Задняя передача, звонок, выключение ГУ — экран сразу включается.</li>
-          <li>Нужно полностью гасить экран? Это делает <a href="#screen">Экран X70</a> или плитка «Отключить экран» в центре управления.</li>
+          <li>Нужно полностью погасить экран — плитка «Отключить экран» в центре управления.</li>
         </ul>
       </div>
     </div>
@@ -301,30 +299,6 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
   </div>
 </section>
 
-<!-- Экран X70 -->
-<section id="screen">
-  <div class="wrap">
-    <div class="feature">
-      <div class="media" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-        <div class="mock"><span class="t">12:53</span><span class="d">вторник, 17 ноября</span><em>Заставка с часами</em></div>
-        <div class="mock off"><em>Отключить экран</em></div>
-      </div>
-      <div>
-        <h2>Экран X70 <span class="badge ok" style="vertical-align:middle;font-size:13px">0.1</span></h2>
-        <p style="color:var(--muted);margin:6px 0 10px">Отдельное маленькое приложение: что делать по кнопке питания. Режим выбирается в самом приложении.</p>
-        <ul>
-          <li><b>Отключить экран</b> (по умолчанию) — чёрный экран, подсветка на минимум. Штатное «выключение» подсветку не гасит вовсе.</li>
-          <li><b>Заставка с часами</b> — часы и дата на чёрном.</li>
-          <li><b>Как штатно</b> — ничего не делает.</li>
-          <li>Кнопки руля не будят. Будит касание или кнопка питания, яркость возвращается ваша, дневная или ночная.</li>
-          <li>Задняя передача, звонок, выключение ГУ — экран сразу включается.</li>
-          <li>Можно ставить вместе с Panel X70: тогда кнопкой питания управляет Экран X70.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Скачать -->
 <section id="download">
   <div class="wrap">
@@ -341,12 +315,10 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
         </div>
       </div>
       <div class="app">
-        <h3>Экран X70 <span class="badge ok">0.1</span></h3>
-        <p>Кнопка питания гасит экран или включает заставку с часами.</p>
+        <h3>Архив</h3>
+        <p>Отдельные приложения, из которых выросла Panel X70, и эксперименты: Экран X70, подогрев руля, Bluetooth X70, перезагрузка ГУ, рабочий стол.</p>
         <div class="files">
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/ScreenX70-install.zip">Флешка: установить или обновить <span>ZIP · 19 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/ScreenX70-remove.zip">Флешка: удалить <span>ZIP · 1 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Screen-X70.apk">Только APK <span>37 КБ</span></a>
+          <a href="#archive">Открыть архив <span>5 приложений</span></a>
         </div>
       </div>
     </div>
@@ -358,7 +330,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
 <section id="install">
   <div class="wrap">
     <h2>Установка с флешки</h2>
-    <p class="sub">Подходит для обоих приложений. Ставится поверх старой версии, удалять ничего не нужно.</p>
+    <p class="sub">Ставится поверх старой версии, удалять ничего не нужно. Приложения из архива ставятся так же.</p>
     <div class="cols">
       <div>
         <h3 style="margin-bottom:12px">Поставить или обновить</h3>
@@ -434,8 +406,17 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
 <section id="archive">
   <div class="wrap">
     <h2>Архив: отдельные приложения</h2>
-    <p class="sub">Приложения, из которых выросла Panel X70. Если стоит Panel X70, они не нужны: всё это уже в ней. Выкладываем на всякий случай, например, если нужна только одна функция без своей панели.</p>
+    <p class="sub">Отдельные приложения: те, из которых выросла Panel X70, и эксперименты. Выкладываем на всякий случай, например, если нужна только одна функция без своей панели.</p>
     <div class="apps">
+      <div class="app">
+        <h3>Экран X70 <span class="badge ok">0.1</span></h3>
+        <p>Что делать по кнопке питания: полностью погасить экран (подсветка на минимум) или показать заставку с часами. Кнопки руля не будят. В Panel X70 то же есть плитками в центре управления; если стоят оба, кнопкой питания управляет Экран X70.</p>
+        <div class="files">
+          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/ScreenX70-install.zip">Флешка: установить <span>ZIP · 19 КБ</span></a>
+          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/ScreenX70-remove.zip">Флешка: удалить <span>ZIP · 1 КБ</span></a>
+          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Screen-X70.apk">Только APK <span>37 КБ</span></a>
+        </div>
+      </div>
       <div class="app">
         <h3>Подогрев руля (WheelHeat) <span class="badge ok">1.0</span></h3>
         <p>Первое приложение: пустая кнопка на руле включает и выключает подогрев руля. С Panel X70 вместе не ставить, если назначаете пустую кнопку там, иначе сработают оба.</p>
@@ -499,11 +480,10 @@ var STATUS = [
   ['ok',  'Окно климата',               'f-climate', '1.20'],
   ['ok',  'Логотип закрывает окна',     'f-control', '1.19'],
   ['ok',  'Заставка / Отключить экран', 'f-control', '1.21'],
-  ['ok',  'Экран с часами без руля',    'f-clock',   '1.18'],
+  ['ok',  'Экран с часами без руля',    'f-clock',   '1.18']
   ['ok',  'Напоминание о телефоне',     'panel',     '1.15'],
   ['ok',  'Bluetooth после запуска',    'panel',     '1.13'],
-  ['ok',  'Bluetooth-музыка сама',      'panel',     '1.16'],
-  ['ok',  'Экран X70',                  'screen',    '0.1']
+  ['ok',  'Bluetooth-музыка сама',      'panel',     '1.16']
 ];
 var box = document.getElementById('statusList');
 STATUS.forEach(function (s) {
