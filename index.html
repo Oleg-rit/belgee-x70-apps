@@ -145,7 +145,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
   <h1>Своя панель для <span>Belgee X70</span></h1>
   <p class="lead">Нижняя панель, окно климата, центр управления и заставка для штатного ГУ. Всё основное делается прямо с панели, без перехода по экранам, в том числе поверх Android Auto.</p>
   <div class="btns">
-    <a class="btn primary" href="#download">Скачать Panel X70 <small>1.24</small></a>
+    <a class="btn primary" href="#download">Скачать Panel X70 <small>1.25</small></a>
     <a class="btn" href="#install">Как установить</a>
   </div>
   <p class="note" id="dlTotal" hidden></p>
@@ -289,7 +289,7 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
       <li><b>«Не забудьте телефон в салоне»</b> — живой голос сразу после остановки двигателя, если телефон подключён по Bluetooth (1.15).</li>
       <li><b>Bluetooth после запуска ГУ</b> — всегда включён, всегда выключен, как в системе или спрашивать (1.13).</li>
       <li><b>Bluetooth-музыка сама</b> — когда телефон подключил музыку, сразу открывается штатный плеер (1.16).</li>
-      <li><b>Пустая кнопка на руле</b> — подогрев руля, сиденье, зимний режим, «Назад», тема приборки или старт-стоп (для полного привода, с 1.22).</li>
+      <li><b>Пустая кнопка на руле</b> — подогрев руля, сиденье, зимний режим, «Назад», тема приборки, старт-стоп (для полного привода, с 1.22) или любое установленное приложение, например Headunit Reloaded или навигатор (с 1.25).</li>
       <li><b>Тема приборки S / C / E / D</b> — кнопкой на панели или в настройках.</li>
       <li><b>Перезагрузка ГУ</b> одной кнопкой вместо 15 секунд на сенсоре: перезапускается только ГУ, машина работает как обычно (1.13).</li>
     </ul>
@@ -311,12 +311,12 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
     <p class="sub">Ссылки всегда ведут на последнюю версию. Если на ГУ нет установщика APK, берите архив для флешки.</p>
     <div class="apps">
       <div class="app">
-        <h3>Panel X70 <span class="badge ok">1.24</span></h3>
+        <h3>Panel X70 <span class="badge ok">1.25</span></h3>
         <p>Нижняя панель, климат, центр управления, подогревы, заставка.</p>
         <div class="files">
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/PanelX70-install.zip">Флешка: установить или обновить <span>ZIP · 200 КБ</span></a>
+          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/PanelX70-install.zip">Флешка: установить или обновить <span>ZIP · 202 КБ</span></a>
           <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/PanelX70-remove.zip">Флешка: удалить <span>ZIP · 2 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Panel-X70.apk">Только APK <span>314 КБ</span></a>
+          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Panel-X70.apk">Только APK <span>318 КБ</span></a>
         </div>
       </div>
       <div class="app">
@@ -392,7 +392,9 @@ dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
   <div class="wrap">
     <h2>История версий</h2>
     <p class="sub">Коротко, что появлялось в Panel X70.</p>
-    <details open><summary>1.24 — логотип Geely или Belgee <i class="badge ok">Проверено</i></summary>
+    <details open><summary>1.25 — пустая кнопка руля открывает приложение <i class="badge ok">Проверено</i></summary>
+      <ul><li>В настройках, в разделе «Пустая кнопка на руле», новый пункт «Открыть приложение» и кнопка «Выбрать приложение» со списком всех установленных.</li><li>Нажатие на руле открывает выбранное приложение, как значок. По просьбе участника клуба.</li></ul></details>
+    <details><summary>1.24 — логотип Geely или Belgee <i class="badge ok">Проверено</i></summary>
       <ul><li>В настройках, в разделе «Панель», можно выбрать логотип в центре панели: Geely (как было) или Belgee.</li><li>Логотип работает как раньше: нажатие — рабочий стол, долгое нажатие — центр управления.</li></ul></details>
     <details><summary>1.23 — форсунки и заднее стекло в зимнем режиме <i class="badge ok">Проверено</i></summary>
       <ul><li>В настройках зимнего режима две новые галочки: форсунки омывателя и заднее стекло. По окончании режим выключает их, только если включал сам. <i class="badge ok">Проверено</i></li><li>При заглушенном двигателе кнопки подогревов серые и не нажимаются, как кнопки климата. <i class="badge ok">Проверено</i></li><li>Отсчёт таймера руля больше не пропадает сам. Если всё же пропадёт — причина видна в настройках, в «Диагностике». <i class="badge ok">Проверено</i></li></ul></details>
@@ -496,6 +498,7 @@ var STATUS = [
   ['ok',  'Форсунки и стекло в зимнем режиме', 'f-winter', '1.23'],
   ['ok',  'Серые подогревы без двигателя', 'f-heat',  '1.23'],
   ['ok',  'Логотип Geely или Belgee',     'f-bar',   '1.24'],
+  ['ok',  'Пустая кнопка открывает приложение', 'panel', '1.25'],
   ['ok',  'Экран с часами без руля',    'f-clock',   '1.18'],
   ['ok',  'Напоминание о телефоне',     'panel',     '1.15'],
   ['ok',  'Bluetooth после запуска',    'panel',     '1.13'],
