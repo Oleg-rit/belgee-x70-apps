@@ -2,562 +2,323 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Приложения для Belgee X70</title>
-<meta name="description" content="Panel X70: своя нижняя панель, окно климата, центр управления и заставка для ГУ Belgee X70. Скачать и установить с флешки.">
-<meta property="og:title" content="Приложения для Belgee X70">
-<meta property="og:description" content="Своя нижняя панель, окно климата, центр управления и заставка для ГУ Belgee X70.">
-<meta property="og:image" content="img/hero.jpg">
-<style>
-:root{
-  --bg:#0b0b0d; --panel:#141417; --panel2:#1b1b20; --line:#2a2a31;
-  --fg:#f2f2f2; --muted:#a3a3ab; --gold:#f7cd0e; --gold-dim:#3a320b;
-  --ok:#6fd38a; --ok-bg:#12301c; --new:#f7cd0e; --new-bg:#33290a; --warn:#ff8a65;
-  --r:14px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-a{color:var(--gold)}
-img{max-width:100%;display:block}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-header.top{position:sticky;top:0;z-index:5;background:rgba(11,11,13,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header.top .wrap{display:flex;align-items:center;gap:20px;height:56px}
-.brand{font-weight:700;letter-spacing:.2px;white-space:nowrap}
-.brand b{color:var(--gold)}
-nav{display:flex;gap:18px;overflow-x:auto;scrollbar-width:none}
-nav a{color:var(--muted);text-decoration:none;white-space:nowrap;font-size:15px}
-nav a:hover{color:var(--fg)}
-
-.hero{padding:48px 0 28px}
-.hero h1{font-size:clamp(30px,5vw,48px);line-height:1.1;margin:0 0 14px}
-.hero h1 span{color:var(--gold)}
-.lead{font-size:18px;color:var(--muted);max-width:720px;margin:0 0 24px}
-.btns{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:12px;font-weight:600;text-decoration:none;border:1px solid var(--line);color:var(--fg);background:var(--panel2)}
-.btn.primary{background:var(--gold);color:#111;border-color:var(--gold)}
-.btn small{font-weight:500;opacity:.75}
-.note{color:var(--muted);font-size:14px}
-.shot{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#000;cursor:zoom-in}
-.hero .shot{margin-top:28px}
-figcaption{color:var(--muted);font-size:14px;margin-top:8px}
-
-section{padding:44px 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(24px,3.4vw,32px);margin:0 0 8px}
-h3{font-size:20px;margin:0 0 6px}
-.sub{color:var(--muted);margin:0 0 26px;max-width:760px}
-
-.warnbox{background:#24130d;border:1px solid #5a2a1a;border-radius:var(--r);padding:14px 18px;color:#ffd2c2;font-size:15px}
-
-/* статус */
-.status{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
-.st{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.st a{color:var(--fg);text-decoration:none}
-.st div{font-size:15px}
-.st small{display:block;color:var(--muted);font-size:13px}
-.badge{font-style:normal;flex:none;font-size:12px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap;margin-top:2px}
-.badge.ok{background:var(--ok-bg);color:var(--ok)}
-.badge.new{background:var(--new-bg);color:var(--new)}
-.badge.ok.sm{font-size:11px}
-.legend{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 16px;color:var(--muted);font-size:14px}
-.legend span{display:flex;gap:8px;align-items:center}
-
-/* функции */
-.feature{display:grid;grid-template-columns:1.25fr 1fr;gap:28px;align-items:center;margin:0 0 38px}
-.feature.rev{grid-template-columns:1fr 1.25fr}
-.feature.rev .media{order:2}
-.feature.wide{grid-template-columns:1fr}
-.feature ul{margin:10px 0 0;padding-left:20px;color:#d9d9de}
-.feature li{margin:4px 0}
-.feature .ver{color:var(--muted);font-size:13px;font-weight:500;margin-left:6px}
-.media.pair{display:grid;gap:10px}
-.how{display:inline-block;background:var(--gold-dim);color:var(--gold);border-radius:8px;padding:2px 9px;font-size:14px;margin:4px 0 2px}
-
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.gallery figure{margin:0}
-
-/* приложение-карточки */
-.apps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.app{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px}
-.app h3{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.app p{color:var(--muted);margin:6px 0 14px}
-.files{display:flex;flex-direction:column;gap:8px}
-.files a{display:flex;justify-content:space-between;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 14px;text-decoration:none;color:var(--fg)}
-.files a span{color:var(--muted);font-size:14px;white-space:nowrap}
-.files a:hover{border-color:var(--gold)}
-
-.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:10px}
-.steps li{counter-increment:s;position:relative;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px 14px 58px}
-.steps li::before{content:counter(s);position:absolute;left:16px;top:13px;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#111;font-weight:700;display:grid;place-items:center;font-size:15px}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-code{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:14px}
-
-details{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:10px}
-details summary{cursor:pointer;font-weight:600}
-details ul{margin:10px 0 4px;padding-left:20px;color:#d9d9de}
-details li{margin:3px 0}
-
-.mock{position:relative;aspect-ratio:16/7;background:#000;border:1px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.mock .t{font-size:clamp(30px,5vw,46px);font-weight:300;color:#e6e6e6;line-height:1}
-.mock .d{font-size:13px;color:#8f8b80;margin-top:6px}
-.mock em{position:absolute;left:0;right:0;bottom:-26px;text-align:center;font-style:normal;font-size:14px;color:var(--muted)}
-.mock.off{background:#030303}
-.dl{font-size:13px;font-weight:500;color:var(--muted);margin-left:auto}
-.dl b{color:var(--fg)}
-footer{border-top:1px solid var(--line);padding:30px 0 50px;color:var(--muted);font-size:14px}
-
-dialog{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh}
-dialog::backdrop{background:rgba(0,0,0,.88)}
-dialog img{max-width:96vw;max-height:94vh;border-radius:10px}
-
-@media (max-width:820px){
-  .feature,.feature.rev{grid-template-columns:1fr;gap:14px}
-  .feature.rev .media{order:0}
-  .apps,.cols{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr}
-  .brand small{display:none}
-}
-@media (max-width:560px){
-  .wrap{padding:0 16px}
-  header.top .wrap{gap:14px}
-  .btn{width:100%;justify-content:center}
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panel X70 — панель и рабочий стол для Belgee X70</title>
+<meta name="description" content="Panel X70 1.28: своя нижняя панель и рабочий стол для штатного ГУ Belgee X70. Попробуйте прямо на странице, скачайте и поставьте с флешки.">
+<meta property="og:title" content="Panel X70 для Belgee X70">
+<meta property="og:description" content="Штатный экран X70. Только удобный.">
+<meta property="og:image" content="https://oleg-rit.github.io/belgee-x70-apps/img/x70/og.jpg">
+<meta name="theme-color" content="#0a0c10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='2' y='14' width='60' height='36' rx='7' fill='%23fff' stroke='%23000' stroke-width='4'/%3E%3Ctext x='32' y='42' font-family='Arial Narrow,Arial' font-weight='700' font-size='26' text-anchor='middle'%3EX70%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@600;800&family=Sofia+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
-
-<header class="top">
-  <div class="wrap">
-    <div class="brand"><b>X70</b> apps <small style="color:var(--muted);font-weight:400">· для Belgee X70</small></div>
-    <nav>
-      <a href="#status">Что работает</a>
-      <a href="#panel">Panel X70</a>
-      <a href="#download">Скачать</a>
+<section class="hero" id="top">
+  <header class="top">
+    <a class="mark" href="#top">Panel X70</a>
+    <nav aria-label="Разделы">
+      <a href="#day">Один день</a>
+      <a href="#aa">Android Auto</a>
       <a href="#install">Установка</a>
-      <a href="#versions">Версии</a>
-      <a href="#archive">Архив</a>
+      <a href="#help">Если что-то не так</a>
     </nav>
-  </div>
-</header>
+    <a class="plate" href="#get" aria-label="Скачать версию 1.28"><span class="a">1.28</span><span class="b">X70<small>скачать</small></span></a>
+  </header>
 
-<main>
-<div class="wrap hero">
-  <h1>Своя панель для <span>Belgee X70</span></h1>
-  <p class="lead">Нижняя панель, окно климата, центр управления и заставка для штатного ГУ. Всё основное делается прямо с панели, без перехода по экранам, в том числе поверх Android Auto.</p>
-  <div class="btns">
-    <a class="btn primary" href="#download">Скачать Panel X70 <small>1.25</small></a>
-    <a class="btn" href="#install">Как установить</a>
-  </div>
-  <p class="note" id="dlTotal" hidden></p>
-  <p class="note">Для ГУ с прошивкой <code>SW0NL3B0411H5177.00115</code> (Android 5.1). Ставится и удаляется с флешки, системные файлы не трогает.</p>
-  <figure class="shot" style="margin-bottom:0"><img src="img/hero.jpg" width="1200" height="459" alt="ГУ Belgee X70 с Android Auto и панелью Panel X70 внизу"></figure>
-</div>
+  <h1><span>Штатный экран X70.</span><span>Только удобный.</span></h1>
+  <p class="lead">Panel X70 — своя нижняя панель и рабочий стол для ГУ Belgee X70. Ставится с флешки, системные файлы не трогает, удаляется так же.</p>
 
-<!-- Что работает -->
-<section id="status">
-  <div class="wrap">
-    <h2>Что сделано и что работает</h2>
-    <p class="sub">Сводка по всем функциям. Всё отмеченное «Проверено» работает в машине на прошивке 115. Если у вас что-то не так, напишите в чат клуба.</p>
-    <div class="status" id="statusList"></div>
+  <div class="pan">
+    <div class="gu">
+      <div class="glass" id="glass" role="group" aria-label="Живая панель: нажимайте и удерживайте кнопки">
+        <span class="hint" style="left:50%;top:93.4%" aria-hidden="true"></span>
+      </div>
+      <div class="vol" aria-hidden="true"><span>V+</span><i></i><i></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><span>V−</span></div>
+    </div>
+  </div>
+
+  <div class="desk">
+    <button class="start" id="start" type="button" aria-pressed="false">ENGINE<em>START</em>STOP</button>
+    <p class="say" id="say" aria-live="polite"><b>Заводим…</b>Сейчас загорятся фары.</p>
+    <div class="light" role="group" aria-label="Тема"><button type="button" id="ln" aria-pressed="true">Ночь</button><button type="button" id="ld" aria-pressed="false">День</button></div>
   </div>
 </section>
 
-<!-- Panel X70 -->
-<section id="panel">
-  <div class="wrap">
-    <h2>Panel X70</h2>
-    <p class="sub">Своя нижняя панель вместо штатной. Значки в одном стиле, включённые подогревы всегда жёлтые, на сиденьях виден уровень.</p>
+<section class="story" id="day" data-sky="dawn">
+  <div class="sky" aria-hidden="true"></div>
+  <div class="dayhead">
+    <h2>Один день с&nbsp;Panel&nbsp;X70</h2>
+    <p>Не список функций, а обычный день за рулём. Экран едет рядом и показывает, куда смотреть.</p>
+  </div>
+  <div class="track">
+    <div class="chaps">
 
-    <div class="feature wide" id="f-bar">
-      <figure class="shot" style="margin:0"><img src="img/bar.jpg" width="1200" height="62" loading="lazy" alt="Панель целиком: температура, обдув, сиденья, руль, назад, музыка, радио, логотип, телефон, настройки, форсунки, зимний режим"></figure>
-      <div>
-        <ul>
-          <li>Слева направо: температура водителя, обдув, сиденье, руль, «Назад», музыка, радио, логотип Geely, телефон, настройки, форсунки, зимний режим, сиденье пассажира, температура пассажира.</li>
-          <li>Кнопка «Назад» прямо на панели, Back Button больше не нужен.</li>
-          <li>Кнопки зимнего режима, темы приборки и «Назад» можно убрать в настройках.</li>
-          <li>Логотип в центре — Geely или Belgee, выбирается в настройках, раздел «Панель» (с 1.24)</li>
-        </ul>
+      <div class="chap" data-sky="dawn">
+        <time>7:20</time><h3>Сел в машину</h3>
+        <div class="step" data-img="n_home" data-spot="56,26,1120,568"><p>Вместо штатного стола — <b>ваша машина</b>: передача, двери, пробег, остаток в баке, сколько до ТО.</p><p>Включается одним переключателем. Вернуть штатный стол можно в любой момент.</p></div>
+        <div class="step" data-img="n_home" data-spot="1216,26,648,570"><p>Справа <b>музыка с обложкой</b> и семь своих мест: приложения или контакты. Удержали значок — поставили другое.</p></div>
+        <div class="step" data-img="n_door" data-spot="80,26,1000,290"><p>Не закрыл дверь — машина развернётся сверху, дверь подсветится, рядом подпись, какая именно.</p></div>
       </div>
+
+      <div class="chap" data-sky="dawn">
+        <time>7:25</time><h3>Минус двадцать</h3>
+        <div class="step" data-img="n_winter" data-spot="1020,284,660,330"><p>Снежинка на панели — <b>зимний режим</b>. Выбрали время, нажали «Включить сейчас».</p><p>Или «При следующем пуске». Или само после каждого пуска — удобно с автозапуском.</p></div>
+        <div class="step" data-img="n_barwin" data-spot="290,620,1460,100"><p>Сиденье и руль греются, <b>отсчёт идёт на самой кнопке</b>. В конце режим выключит только то, что включал он.</p><p>На светофоре со старт-стопом ничего не перезапускается.</p></div>
+        <div class="step" data-img="n_what" data-spot="480,30,960,560"><p>Что греть, отмечаете сами: сиденья, руль, форсунки, заднее стекло. Уровень и время — тоже ваши.</p></div>
+        <div class="step" data-img="n_seat" data-spot="40,274,720,338"><p>Нужно только сиденье? <b>Удержите значок</b> — и вот все уровни. Так же с рулём: 5, 10 или 15 минут.</p></div>
+      </div>
+
+      <div class="chap" data-sky="road">
+        <time>7:45</time><h3>Шлагбаум</h3>
+        <div class="step" data-img="n_callhome" data-spot="740,20,440,156"><p>Подъехал, <b>удержал пустую кнопку на руле</b> — телефон сам звонит шлагбауму. С карты Android Auto уходить не нужно.</p><p>Звонит ваш телефон по Bluetooth. Не подключён — Panel так и напишет.</p></div>
+        <div class="step" data-img="n_wkpick" data-spot="300,76,1320,470"><p>У кнопки три действия: <b>нажатие, долгое и двойное</b>. Подогрев, «Назад», старт-стоп, тема приборки, любое приложение или звонок.</p></div>
+      </div>
+
+      <div class="chap" data-sky="road">
+        <time>8:05</time><h3>Еду по карте, играет музыка</h3>
+        <div class="step" data-img="n_track" data-spot="530,204,860,216"><p>Сменилась песня — <b>обложка по центру на четыре секунды</b>. Из Android Auto и по Bluetooth. На самой карте и на задней передаче не мешает.</p></div>
+        <div class="step" data-img="n_nav" data-spot="86,488,1060,84"><p>Открыли рабочий стол — <b>маршрут не потерялся</b>: сколько до манёвра и какая улица.</p><p>Сторону поворота Open Headunit другим приложениям не сообщает, поэтому её нет.</p></div>
+        <div class="step" data-img="n_navpop" data-spot="680,462,560,142"><p>В любом другом приложении та же подсказка всплывёт над панелью: при новом манёвре, за 500 м и со 150 м.</p><p><a href="#aa">Что включить для Android Auto</a></p></div>
+        <div class="step" data-img="n_ssound" data-spot="1030,120,846,500"><p>Треки Android Auto — <b>кнопками руля</b>. Музыка не приглушается на задней. При запуске не громче, чем вы сказали.</p></div>
+      </div>
+
+      <div class="chap" data-sky="noon">
+        <time>13:30</time><h3>Машина стояла на солнце</h3>
+        <div class="step" data-img="d_barsumon" data-spot="1552,616,124,104"><p>Летом на месте снежинки солнце. Нажали — <b>окна по одному опускаются на 10 %</b>, кондиционер на MAX. Время вышло, всё закрылось.</p><p class="care"><b>Заглушили — режим закончен, окна Panel не закрывает.</b> X70 закрывает их сама, когда встаёт на охрану. Убедитесь, что ваша так делает.</p></div>
+        <div class="step" data-img="d_cc" data-spot="790,170,440,240"><p>Без режима тоже можно: в центре управления <b>«Проветрить»</b> и <b>«Закрыть все»</b>. Со второго нажатия, чтобы не задеть случайно.</p></div>
+        <div class="step" data-img="d_clim" data-spot="101,97,1719,517"><p>Весь климат — <b>одним окном, поверх карты</b>. Температуру ведёте пальцем по дуге. Чего нет в вашей комплектации, того нет и в окне.</p></div>
+      </div>
+
+      <div class="chap" data-sky="dusk">
+        <time>17:50</time><h3>Заправка</h3>
+        <div class="step" data-img="n_add" data-spot="46,16,1820,590"><p>Литры и «до полного» — всё. <b>Одометр Panel берёт из машины</b>, цену помнит с прошлого раза.</p></div>
+        <div class="step" data-img="n_fuel" data-spot="40,60,1380,490"><p>Расход между полными баками, остаток, запас хода, цена километра. История из Fuelio загружается с флешки.</p><p>Остаток — расчёт: сколько топлива, машина не сообщает.</p></div>
+        <div class="step" data-img="n_odo" data-spot="40,60,1840,480"><p><b>Пять одометров</b>: километры, моточасы, средняя скорость. Поездка, отпуск, замена масла — как назовёте.</p></div>
+        <div class="step" data-img="n_due" data-spot="120,60,1700,560"><p>Подошло ТО — при пуске двигателя скажет на весь экран. «Выполнено», «Отложить» или «Удалить».</p></div>
+      </div>
+
+      <div class="chap" data-sky="dark">
+        <time>19:10</time><h3>Заглушил и ушёл</h3>
+        <div class="step" data-img="n_off" data-spot="380,30,760,290"><p>Двигатель встал, телефон ещё в машине — музыка на паузу, и <b>живой голос</b> напомнит. На старт-стопе молчит.</p><button class="listen" type="button">Послушать</button></div>
+        <div class="step" data-img="n_home" data-spot=""><p>Наутро всё на своих местах. Настройки и заправки копируются на ГУ, <b>после переустановки возвращаются одной кнопкой</b>.</p></div>
+      </div>
+
     </div>
-
-    <div class="feature" id="f-climate">
-      <figure class="shot media" style="margin:0"><img src="img/climate.jpg" width="1114" height="436" loading="lazy" alt="Окно климата Panel X70"></figure>
-      <div>
-        <h3>Окно климата <span class="ver">с 1.20</span></h3>
-        <span class="how">долгое нажатие на значок обдува</span>
-        <ul>
-          <li>Температура водителя и пассажира, 5 режимов обдува, вентилятор полоской и «−/+».</li>
-          <li>AUTO, A/C, MAX, рециркуляция, лобовое и заднее стекло, DUAL, AQS, кнопка «Включить / Выключить».</li>
-          <li>Ионизатор появляется, только если он есть в комплектации.</li>
-          <li>Закрыть — нажать мимо окна или коротко на значок обдува.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="feature rev" id="f-control">
-      <figure class="shot media" style="margin:0"><img src="img/control.jpg" width="1144" height="436" loading="lazy" alt="Центр управления Panel X70"></figure>
-      <div>
-        <h3>Центр управления <span class="ver">с 1.14</span></h3>
-        <span class="how">долгое нажатие на логотип Geely</span>
-        <ul>
-          <li>Всё со штатного экрана по свайпу влево: яркость, Bluetooth, без звука, звук при касании, видео в движении, зеркала, двери, обогрев руля, форсунки.</li>
-          <li>«Перезагрузить ГУ» вторым нажатием.</li>
-          <li>Новое в 1.21: «Заставка» и «Отключить экран».</li>
-          <li>Нажатие на логотип при открытом окне просто закрывает его, Android Auto не пропадает (1.19).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="feature" id="f-heat">
-      <div class="media pair">
-        <figure class="shot" style="margin:0"><img src="img/seat.jpg" width="570" height="435" loading="lazy" alt="Окно подогрева сиденья: выкл, 1 уровень, 2 уровень"></figure>
-        <figure class="shot" style="margin:0"><img src="img/seat-levels.jpg" width="680" height="100" loading="lazy" alt="Сиденье на втором уровне подогрева"></figure>
-      </div>
-      <div>
-        <h3>Подогрев сидений</h3>
-        <span class="how">удержание значка сиденья</span>
-        <ul>
-          <li>Окно «Выкл / 1 / 2» с крупными сиденьями.</li>
-          <li>Уровень виден на самой панели: первый — жёлтая волна, второй — три волны красно-оранжевым.</li>
-          <li>Уровней столько, сколько у вашей машины.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="feature rev" id="f-wheel">
-      <div class="media pair">
-        <figure class="shot" style="margin:0"><img src="img/wheel.jpg" width="913" height="618" loading="lazy" alt="Окно подогрева руля: 5, 10, 15 минут"></figure>
-        <figure class="shot" style="margin:0"><img src="img/wheel-timer.jpg" width="1000" height="140" loading="lazy" alt="Руль с отсчётом 9:59 под значком"></figure>
-      </div>
-      <div>
-        <h3>Подогрев руля с таймером</h3>
-        <span class="how">удержание значка руля</span>
-        <ul>
-          <li>Включить на 5, 10 или 15 минут, отсчёт под значком.</li>
-          <li>Потом подогрев выключится сам.</li>
-          <li>Можно повесить на пустую кнопку руля.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="feature" id="f-winter">
-      <div class="media pair">
-        <figure class="shot" style="margin:0"><img src="img/winter.jpg" width="827" height="523" loading="lazy" alt="Окно зимнего режима"></figure>
-        <figure class="shot" style="margin:0"><img src="img/winter-wait.jpg" width="720" height="145" loading="lazy" alt="Зимний режим ждёт пуска двигателя"></figure>
-      </div>
-      <div>
-        <h3>Зимний режим</h3>
-        <span class="how">значок снежинки</span>
-        <ul>
-          <li>Сиденья и руль разом на 5, 10 или 15 минут.</li>
-          <li>Двигатель заглушен — режим «ждёт пуск» и включится после старта.</li>
-          <li>Подогревы включаются только при работающем двигателе и по очереди, с паузой в секунду, как рукой.</li>
-          <li>Можно включать автоматически при каждом пуске, если за бортом холодно.</li>
-          <li>По желанию — ещё форсунки омывателя и заднее стекло: галочки в настройках, по умолчанию выключены (с 1.23)</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="feature rev" id="f-temp">
-      <figure class="shot media" style="margin:0;max-width:420px"><img src="img/temp.jpg" width="410" height="457" loading="lazy" alt="Окно температуры"></figure>
-      <div>
-        <h3>Окно температуры</h3>
-        <span class="how">нажатие на градусы</span>
-        <ul>
-          <li>Красная стрелка вверх, синяя вниз, ползунок сбоку.</li>
-          <li>Если DUAL выключен, пассажир меняет общую температуру.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="feature" id="f-clock">
-      <figure class="shot media" style="margin:0"><img src="img/clock.jpg" width="1010" height="418" loading="lazy" alt="Заставка с часами"></figure>
-      <div>
-        <h3>Экран с часами без пробуждения от руля <span class="ver">с 1.18</span></h3>
-        <span class="how">кнопка питания</span>
-        <ul>
-          <li>Штатно любая кнопка руля (громкость, треки) будит экран. С галочкой в настройках — нет.</li>
-          <li>Разбудить: коснуться экрана или снова нажать кнопку питания.</li>
-          <li>Задняя передача, звонок, выключение ГУ — экран сразу включается.</li>
-          <li>Нужно полностью погасить экран — плитка «Отключить экран» в центре управления.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h3 style="margin-top:8px">Ещё в Panel X70</h3>
-    <ul style="color:#d9d9de;margin:8px 0 22px;padding-left:20px">
-      <li><b>«Не забудьте телефон в салоне»</b> — живой голос сразу после остановки двигателя, если телефон подключён по Bluetooth (1.15).</li>
-      <li><b>Bluetooth после запуска ГУ</b> — всегда включён, всегда выключен, как в системе или спрашивать (1.13).</li>
-      <li><b>Bluetooth-музыка сама</b> — когда телефон подключил музыку, сразу открывается штатный плеер (1.16).</li>
-      <li><b>Пустая кнопка на руле</b> — подогрев руля, сиденье, зимний режим, «Назад», тема приборки, старт-стоп (для полного привода, с 1.22) или любое установленное приложение, например Headunit Reloaded или навигатор (с 1.25).</li>
-      <li><b>Тема приборки S / C / E / D</b> — кнопкой на панели или в настройках.</li>
-      <li><b>Перезагрузка ГУ</b> одной кнопкой вместо 15 секунд на сенсоре: перезапускается только ГУ, машина работает как обычно (1.13).</li>
-    </ul>
-
-    <h3>Настройки</h3>
-    <p class="sub" style="margin-bottom:14px">Открываются из центра управления («Настройки Panel X70») или значком приложения.</p>
-    <div class="gallery">
-      <figure><div class="shot"><img src="img/set-panel.jpg" width="1200" height="410" loading="lazy" alt="Настройки: раздел Панель"></div><figcaption>Какие кнопки показывать</figcaption></figure>
-      <figure><div class="shot"><img src="img/set-theme.jpg" width="1200" height="472" loading="lazy" alt="Настройки: тема приборки и пустая кнопка на руле"></div><figcaption>Тема приборки и пустая кнопка руля</figcaption></figure>
-      <figure><div class="shot"><img src="img/set-phone.jpg" width="1175" height="507" loading="lazy" alt="Настройки: напоминание о телефоне и Bluetooth"></div><figcaption>Напоминание о телефоне и Bluetooth</figcaption></figure>
-    </div>
+    <div class="stage" aria-hidden="true"><div class="now"><b id="clock">7:20</b><span id="what">Сел в машину</span></div><div class="gu"><div class="glass"><div class="cam"><div class="spot"></div></div></div></div></div>
   </div>
 </section>
 
-<!-- Скачать -->
-<section id="download">
-  <div class="wrap">
-    <h2>Скачать</h2>
-    <p class="sub">Ссылки всегда ведут на последнюю версию. Если на ГУ нет установщика APK, берите архив для флешки.</p>
-    <div class="apps">
-      <div class="app">
-        <h3>Panel X70 <span class="badge ok">1.25</span></h3>
-        <p>Нижняя панель, климат, центр управления, подогревы, заставка.</p>
-        <div class="files">
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/PanelX70-install.zip">Флешка: установить или обновить <span>ZIP · 202 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/PanelX70-remove.zip">Флешка: удалить <span>ZIP · 2 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Panel-X70.apk">Только APK <span>318 КБ</span></a>
+<section class="get" id="get">
+  <h2>Поставить себе</h2>
+  <a class="plate" href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/PanelX70-install.zip"><span class="a">СКАЧАТЬ 1.28</span><span class="b">X70<small>ZIP, 886 КБ</small></span></a>
+  <p>Архив для флешки: установить или обновить. Только для прошивки <b>SW0NL3B0411H5177.00115</b>. Обновление ставится поверх, настройки остаются.</p>
+  <p class="other"><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Panel-X70.apk">Только APK, 1,2 МБ</a> &nbsp; <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/PanelX70-remove.zip">Флешка «удалить»</a> &nbsp; <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest">Что нового и что ещё обкатывается</a></p>
+  <p class="other" id="count" hidden></p>
+</section>
+
+<section class="book" id="book">
+  <div class="in">
+    <div class="cover"><h2>Руководство</h2><p>Как поставить, что включить, что нажимать и что делать, если не получилось.</p></div>
+    <nav class="toc" aria-label="Содержание"><ol>
+      <li><a href="#install">Установка</a></li>
+      <li><a href="#aa">Android Auto</a></li>
+      <li><a href="#home">Рабочий стол</a></li>
+      <li><a href="#keys">Кнопки панели</a></li>
+      <li><a href="#season">Зима и лето</a></li>
+      <li><a href="#settings">Настройки</a></li>
+      <li><a href="#help">Если что-то не так</a></li>
+      <li><a href="#remove">Удаление</a></li>
+      <li><a href="#versions">Версии</a></li>
+      <li><a href="#archive">Архив</a></li>
+    </ol></nav>
+    <div class="pages">
+
+      <article class="sec" id="install"><h3>Установка</h3>
+        <div class="two">
+          <div>
+            <ol>
+              <li>Флешка <b>FAT32</b>, лучше пустая.</li>
+              <li>Распакуйте <code>PanelX70-install.zip</code> <b>в корень</b>, а не в отдельную папку.</li>
+              <li>Заведите машину, дождитесь загрузки экрана.</li>
+              <li>Вставьте флешку. Она должна быть единственной.</li>
+              <li>Сами открылись настройки Panel X70 — флешку можно вынуть.</li>
+              <li>Пройдите мастер: привод, кнопки, подогревы, руль, звук, рабочий стол, дата.</li>
+              <li>Заглушите, дождитесь, пока погаснет экран, и заведите снова.</li>
+            </ol>
+          </div>
+          <div>
+            <h4 style="margin-top:0">На флешке должно быть так</h4>
+            <pre>Panel-X70.apk
+done.sh
+b832bc61472727635baffcf25dd28e9f239273e2/</pre>
+            <h4>Обновляете с 1.25</h4>
+            <p>Ставьте поверх, удалять ничего не нужно. Если Panel уже настроена, мастера не будет. Один раз появится окно «Новое: свой рабочий стол» — согласитесь или оставьте штатный.</p>
+          </div>
         </div>
-      </div>
-      <div class="app">
-        <h3>Архив</h3>
-        <p>Отдельные приложения, из которых выросла Panel X70, и эксперименты: Экран X70, подогрев руля, Bluetooth X70, перезагрузка ГУ, рабочий стол.</p>
-        <div class="files">
-          <a href="#archive">Открыть архив <span>5 приложений</span></a>
-        </div>
-      </div>
-    </div>
-    <p class="note" style="margin-top:14px">Все версии и файлы: <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases">страница релизов</a>.</p>
-    <p class="note">🔔 Узнавать о новых версиях: откройте <a href="https://github.com/Oleg-rit/belgee-x70-apps">страницу проекта на GitHub</a>, нажмите вверху справа <b>Watch</b> → <b>Custom</b> → отметьте <b>Releases</b> → <b>Apply</b>. Письмо будет приходить, когда выйдет новая версия (нужна бесплатная учётная запись GitHub).</p>
-  </div>
-</section>
+        <div class="tips"><b>Почему с флешки, а не APK</b>Флешка заодно выдаёт доступ к музыке Android Auto. Из APK его на этом ГУ не включить.</div>
+        <h4>Если стоят старые приложения</h4>
+        <ul>
+          <li><b>«Полоса BX70»</b> — удалите обязательно: две панели не уживутся.</li>
+          <li><b>steering3</b> — удалите, если включаете «Треки с руля в Android Auto».</li>
+          <li><b>WheelHeat</b> — удалите, если назначаете действие кнопке руля, иначе сработают оба.</li>
+          <li><b>Экран X70</b> — пока стоит, кнопкой питания управляет он.</li>
+          <li><b>Bluetooth X70</b>, <b>Перезагрузка ГУ</b>, <b>Back Button</b> больше не нужны: всё это есть в Panel.</li>
+        </ul>
+      </article>
 
-<!-- Установка -->
-<section id="install">
-  <div class="wrap">
-    <h2>Установка с флешки</h2>
-    <p class="sub">Ставится поверх старой версии, удалять ничего не нужно. Приложения из архива ставятся так же.</p>
-    <div class="cols">
-      <div>
-        <h3 style="margin-bottom:12px">Поставить или обновить</h3>
-        <ol class="steps">
-          <li>Флешка в формате <b>FAT32</b>, лучше пустая.</li>
-          <li>Распакуйте архив <code>…-install.zip</code> в <b>корень</b> флешки: файлы и папка должны лежать сразу на ней, а не в отдельной папке.</li>
-          <li>Заведите машину, дождитесь загрузки экрана.</li>
-          <li>Вставьте флешку (она должна быть первой и единственной).</li>
-          <li>Готово, когда сами откроются настройки приложения. Флешку можно вынуть.</li>
-          <li>Для Panel X70: заглушите машину, дождитесь, пока погаснет экран, и заведите снова.</li>
+      <article class="sec" id="aa"><h3>Android Auto</h3>
+        <p>Panel работает вместе с <b>Open Headunit</b> (раньше Headunit Revived). Другие приложения Android Auto она не видит.</p>
+        <div class="scheme"><svg viewBox="0 0 1080 230" role="img" aria-label="Телефон передаёт Android Auto в Open Headunit, тот отдаёт трек и маршрут в Panel X70">
+          <g fill="none" stroke="#14171b" stroke-width="3"><rect x="4" y="52" width="180" height="120" rx="8"/><rect x="330" y="52" width="230" height="120" rx="8"/><rect x="826" y="20" width="250" height="184" rx="8" fill="#14171b"/><path d="M184 112h138M560 84h258M560 142h258"/></g>
+          <g fill="#14171b"><path d="M330 112l-16-9v18zM826 84l-16-9v18zM826 142l-16-9v18z"/></g>
+          <g font-family="Sofia Sans,sans-serif" font-size="21" font-weight="700" fill="#14171b"><text x="94" y="119" text-anchor="middle">Телефон</text><text x="445" y="108" text-anchor="middle">Open Headunit</text><text x="445" y="136" text-anchor="middle" font-weight="400" font-size="17">Android Auto на ГУ</text><text x="951" y="62" text-anchor="middle" fill="#fff">Panel X70</text>
+          <g font-weight="400" font-size="17"><text x="690" y="74" text-anchor="middle">трек и обложка</text><text x="690" y="132" text-anchor="middle">маршрут</text><text x="690" y="168" text-anchor="middle" fill="#585f66">две настройки, обе выключены</text><g fill="#dfe3e8"><text x="951" y="100" text-anchor="middle">плеер и «Новый трек»</text><text x="951" y="132" text-anchor="middle">плашка и строка маршрута</text><text x="951" y="164" text-anchor="middle">пауза перед «Не забудьте…»</text></g></g></g>
+        </svg></div>
+        <div class="two">
+          <div>
+            <h4 style="margin-top:0">1. В Open Headunit → Настройки</h4>
+            <ul class="set">
+              <li><b>Аудио → Текущий трек AA в медиасессии</b><span>название, исполнитель, обложка, кнопка ▶</span><i></i></li>
+              <li><b>Навигация → Уведомления навигации</b><span>подсказки маршрута</span><i></i></li>
+            </ul>
+            <p style="margin-top:14px">Нажмите «Сохранить». Попросит — переподключите Android Auto.</p>
+            <p>Названия из Open Headunit 4.1.0-beta1. В другой версии разделы могут называться чуть иначе: ищите по названию самой настройки.</p>
+          </div>
+          <div>
+            <h4 style="margin-top:0">2. В Panel X70 → Настройки</h4>
+            <ul class="set">
+              <li><b>Рабочий стол и Drive</b><span>внизу должно быть «Музыка Android Auto: доступ есть». Нет — поставьте Panel с флешки ещё раз</span></li>
+              <li><b>Рабочий стол Drive X70</b><span>Drive включится вместе с ним</span><i></i></li>
+              <li><b>Показывать новый трек</b><span>Звук и Bluetooth</span><i></i></li>
+              <li><b>Подсказки маршрута AA</b><span>Звук и Bluetooth</span><i></i></li>
+              <li><b>Треки с руля в Android Auto</b><span>по желанию; сначала удалите steering3</span><i></i></li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="sec" id="home"><h3>Рабочий стол</h3>
+        <ol>
+          <li>Настройки → <b>Рабочий стол и Drive</b> → «Рабочий стол Drive X70».</li>
+          <li>Android спросит, что открывать. Делайте, как подсказывает плашка сверху: обычно <b>Drive X70</b>, потом <b>«Всегда»</b>.</li>
+          <li>Panel проверит. Запомнился не тот стол — предложит «Выбрать ещё раз».</li>
         </ol>
-      </div>
-      <div>
-        <h3 style="margin-bottom:12px">Удалить</h3>
-        <ol class="steps">
-          <li>Так же распакуйте <code>…-remove.zip</code> в корень флешки и вставьте её в машину.</li>
-          <li>Готово, когда откроются штатные настройки ГУ.</li>
-        </ol>
-        <h3 style="margin:22px 0 10px">Вернуть штатную панель без удаления</h3>
-        <ul style="color:#d9d9de;padding-left:20px;margin:0">
-          <li>Снимите галочку «Показывать Panel X70» в настройках.</li>
-          <li>Или положите на флешку пустой файл <code>polosa_off</code> и вставьте её.</li>
-        </ul>
-        <h3 style="margin:22px 0 10px">Если стоят старые приложения</h3>
-        <ul style="color:#d9d9de;padding-left:20px;margin:0">
-          <li><b>Bluetooth X70</b> и <b>Перезагрузка ГУ</b> можно удалить: всё это теперь в Panel X70.</li>
-          <li><b>WheelHeat</b> удалите, если назначаете действие пустой кнопке руля, иначе сработают оба.</li>
-        </ul>
-      </div>
+        <p>Выключили переключатель — вернулся штатный. Данные Drive при этом не стираются.</p>
+        <h4>Контакт вместо приложения</h4>
+        <p>Удержите место → «＋ Контакт» → номер и имя. Имя можно взять из книги ГУ. Нажатие — звонок.</p>
+        <div class="shots">
+          <figure><img src="img/x70/n_sdesk.webp" width="1920" height="720" loading="lazy" alt="Настройки рабочего стола и Drive"><figcaption>Здесь же обложка слева или фоном, строка маршрута, напоминания и топливо.</figcaption></figure>
+          <figure><img src="img/x70/n_pick.webp" width="1920" height="720" loading="lazy" alt="Что поставить на место значка"><figcaption>Удержали значок: что поставить на это место.</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="sec" id="keys"><h3>Кнопки панели</h3>
+        <div class="scroll"><table class="keys">
+          <thead><tr><th></th><th>Нажатие</th><th>Удержание</th></tr></thead>
+          <tbody>
+            <tr><td class="ic"><div data-cut="30,150,0"></div></td><td>Окно температуры</td><td>—</td></tr>
+            <tr><td class="ic"><div data-cut="196,98,0"></div></td><td>Штатный климат</td><td><b>Окно климата</b></td></tr>
+            <tr><td class="ic"><div data-cut="298,90,2"></div></td><td>Уровень подогрева по кругу</td><td>Окно с уровнями</td></tr>
+            <tr><td class="ic"><div data-cut="396,90,1"></div></td><td>Подогрев руля</td><td>На 5, 10 или 15 минут</td></tr>
+            <tr><td class="ic"><div data-cut="506,96,0"></div></td><td>Назад</td><td>—</td></tr>
+            <tr><td class="ic"><div data-cut="900,120,0"></div></td><td>Рабочий стол. Открыто окно панели — закрыть его</td><td><b>Центр управления</b></td></tr>
+            <tr><td class="ic"><div data-cut="1280,80,0"></div></td><td>Старт-стоп, только полный привод</td><td>—</td></tr>
+            <tr><td class="ic"><div data-cut="1368,100,1"></div></td><td>Обогрев форсунок</td><td>—</td></tr>
+            <tr><td class="ic"><div data-cut="1476,80,0"></div></td><td>Тема приборки: S, C, E, D</td><td>—</td></tr>
+            <tr><td class="ic"><div data-cut="1566,96,1"></div></td><td>Зима: окно режима. Лето: включить или выключить</td><td>—</td></tr>
+          </tbody>
+        </table></div>
+        <p style="margin-top:16px">Нота, радио, трубка и шестерёнка — как в штатной панели. Подогревы работают только при заведённом двигателе, иначе значки серые.</p>
+        <h4>Кнопка питания: экран с часами</h4>
+        <p>Штатно громкость и треки на руле будят экран. Настройки → Экран и приборка → «Не будить кнопками руля» — и не будут. Разбудить: коснуться экрана или нажать питание. Задняя передача и звонок включают экран сразу.</p>
+      </article>
+
+      <article class="sec" id="season"><h3>Зима и лето</h3>
+        <p>Одна кнопка на панели. Что она делает, выбираете в настройках: <b>Зимний и летний → Сезон</b>.</p>
+        <div class="two">
+          <div><h4>Зима</h4><ul><li>Греет отмеченное: сиденья, руль, форсунки, заднее стекло.</li><li>Три варианта времени задаёте сами.</li><li>Можно сразу, при следующем пуске или после каждого пуска.</li><li>В конце выключает только своё. ГУ перезагрузилось — режим продолжится.</li></ul></div>
+          <div><h4>Лето</h4><ul><li>Окна на 10 % и кондиционер MAX, вместе или по отдельности.</li><li>Окна идут по одному. Открытые вами не трогает.</li><li>Окно упёрлось в препятствие — второй раз само не закрывается, Panel напишет на экране.</li></ul></div>
+        </div>
+        <div class="warn"><svg viewBox="0 0 54 48" aria-hidden="true"><path d="M27 3 51 45H3z" fill="none" stroke="#14171b" stroke-width="5" stroke-linejoin="round"/><path d="M27 18v13M27 36v4" stroke="#14171b" stroke-width="5"/></svg><div><b>Заглушили — окна Panel не закрывает</b>Режим на этом закончен. X70 закрывает окна сама, когда встаёт на охрану. Убедитесь, что ваша машина так делает.</div></div>
+      </article>
+
+      <article class="sec" id="settings"><h3>Настройки</h3>
+        <p>Удержите логотип → «Настройки Panel X70», или значок приложения. Есть поиск; у неочевидных пунктов — знак «?» с пояснением.</p>
+        <div class="shots">
+          <figure><img src="img/x70/n_spanel.webp" width="1920" height="720" loading="lazy" alt="Раздел Панель"><figcaption><b>Панель.</b> Логотип Geely или Belgee, привод, какие кнопки показывать.</figcaption></figure>
+          <figure><img src="img/x70/n_swinter.webp" width="1920" height="720" loading="lazy" alt="Раздел Зимний и летний"><figcaption><b>Зимний и летний.</b> Сезон, что греть, время, автозапуск.</figcaption></figure>
+          <figure><img src="img/x70/n_swheel.webp" width="1920" height="720" loading="lazy" alt="Раздел Кнопка на руле"><figcaption><b>Кнопка на руле.</b> Нажатие, долгое (0,8 с) и двойное.</figcaption></figure>
+          <figure><img src="img/x70/n_ssound.webp" width="1920" height="720" loading="lazy" alt="Раздел Звук и Bluetooth"><figcaption><b>Звук и Bluetooth.</b> Что включать при запуске и как громко, напоминание о телефоне.</figcaption></figure>
+          <figure><img src="img/x70/n_sscreen.webp" width="1920" height="720" loading="lazy" alt="Раздел Экран и приборка"><figcaption><b>Экран и приборка.</b> Тема светлая, тёмная или авто.</figcaption></figure>
+          <figure><img src="img/x70/n_sservice2.webp" width="1920" height="720" loading="lazy" alt="Раздел Сервис"><figcaption><b>Сервис.</b> Отчёт, мастер, копия настроек, перезагрузка ГУ.</figcaption></figure>
+        </div>
+        <h4>Копия настроек</h4>
+        <p>Пишется сама на ГУ: <code>PanelX70/settings.json</code>, заправки — в <code>drive.json</code>. После установки начисто Panel предложит вернуть.</p>
+        <h4>Багажник</h4>
+        <p>Кнопка на панели работает только с заводским электроприводом, по умолчанию выключена.</p>
+        <h4>Чего Panel не делает</h4>
+        <ul><li>Не меняет системные файлы ГУ.</li><li>Не выходит в интернет: такого разрешения у неё нет.</li><li>Не читает VIN и никуда ничего не отправляет.</li><li>Окна двигает и звонит только по вашему нажатию — или в режиме «после каждого пуска», если вы сами его включили.</li></ul>
+      </article>
+
+      <article class="sec" id="help"><h3>Если что-то не так</h3>
+        <details><summary>Панель не появилась после установки</summary><p>Заглушите, дождитесь, пока погаснет экран, и заведите снова: панель создаётся при загрузке ГУ. Проверьте, что включено «Показывать Panel X70» и не стоит другая панель.</p></details>
+        <details><summary>«Домой» открывает штатный рабочий стол</summary><p>Настройки → Рабочий стол и Drive → «Выбрать ещё раз» → Drive X70 → «Всегда». Не помогло — Сервис → «Сбросить выбор рабочего стола».</p></details>
+        <details><summary>На столе нет трека и обложки Android Auto</summary><p>Включите в Open Headunit «Текущий трек AA в медиасессии» и сохраните. Если в настройках Panel «нет доступа» — поставьте её с флешки ещё раз.</p></details>
+        <details><summary>Нет подсказок маршрута</summary><p>Включите «Уведомления навигации» в Open Headunit и «Подсказки маршрута AA» в Panel. На экране самого Android Auto плашки нет нарочно: там и так карта.</p></details>
+        <details><summary>Трек перескакивает через один</summary><p>Кнопки руля обрабатывают двое. Удалите steering3. Если его нет — в Open Headunit поставьте «Передача кнопок мультимедиа в Android Auto» на «Всегда».</p></details>
+        <details><summary>Кнопка руля не звонит</summary><p>Телефон должен быть подключён к ГУ по Bluetooth, даже если Android Auto идёт по проводу.</p></details>
+        <details><summary>Кнопка «Назад» не срабатывает</summary><p>Настройки → Сервис → «Служба «Назад»» → включите «Panel X70 — кнопка Назад» в спецвозможностях.</p></details>
+        <details><summary>Дата в Drive неверная</summary><p>Время ГУ берёт у машины, а дата часто сбита. Укажите сегодняшнюю: Рабочий стол и Drive → «Сегодняшняя дата». Часы ГУ не меняются.</p></details>
+        <details><summary>Окно не закрылось в конце летнего режима</summary><p>Если сдвинулось, но не закрылось, могла сработать защита от защемления. Проверьте, что ему ничего не мешает.</p></details>
+        <details><summary>Panel сама выключилась</summary><p>После трёх сбоев подряд она возвращает штатную панель. Включить: Настройки → Панель → «Показывать Panel X70». Пришлите, пожалуйста, отчёт.</p></details>
+        <div class="tips"><b>Не помогло</b>Настройки → Сервис → «Отчёт о работе панели» → «Сохранить отчёт» со вставленной флешкой. Пришлите его в чат клуба.</div>
+      </article>
+
+      <article class="sec" id="remove"><h3>Удаление</h3>
+        <div class="two">
+          <div><h4 style="margin-top:0">Совсем</h4><p>Распакуйте <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/PanelX70-remove.zip">PanelX70-remove.zip</a> в корень флешки и вставьте её. Готово, когда откроются штатные настройки ГУ. Настройки Panel стёрты, копии в папке <code>PanelX70</code> остаются.</p></div>
+          <div><h4 style="margin-top:0">Вернуть штатную панель на время</h4><p>Настройки → Панель → выключить «Показывать Panel X70». Не добраться до настроек — положите на флешку пустой файл <code>polosa_off</code> и вставьте её.</p></div>
+        </div>
+      </article>
+
+      <article class="sec" id="versions"><h3>Версии</h3>
+        <details open><summary>1.28 — рабочий стол, Drive X70, Android Auto, летний режим</summary><ul><li>Свой рабочий стол и Drive X70: заправки, одометры с моточасами, напоминания о ТО.</li><li>Android Auto: трек с обложкой, «Новый трек», подсказки маршрута, треки с руля.</li><li>Летний режим, окна по очереди.</li><li>Кнопка руля: нажатие, долгое и двойное, действие «Позвонить».</li><li>Громкость и источник звука при запуске, музыка не приглушается на задней.</li><li>Новый вид окон, светлая тема, новые настройки, мастер, копия настроек.</li><li>Исправлено: режимы не перезапускаются на старт-стопе, зимний режим переживает перезагрузку ГУ.</li><li>Три сбоя подряд — Panel сама вернёт штатную панель.</li></ul></details>
+        <details><summary>1.25 — пустая кнопка руля открывает приложение</summary><ul><li>В настройках, в разделе «Пустая кнопка на руле», новый пункт «Открыть приложение» и кнопка «Выбрать приложение» со списком всех установленных.</li><li>Нажатие на руле открывает выбранное приложение, как значок. По просьбе участника клуба.</li></ul></details>
+        <details><summary>1.24 — логотип Geely или Belgee</summary><ul><li>В настройках, в разделе «Панель», можно выбрать логотип в центре панели: Geely (как было) или Belgee.</li><li>Логотип работает как раньше: нажатие — рабочий стол, долгое нажатие — центр управления.</li></ul></details>
+        <details><summary>1.23 — форсунки и заднее стекло в зимнем режиме</summary><ul><li>В настройках зимнего режима две новые галочки: форсунки омывателя и заднее стекло. По окончании режим выключает их, только если включал сам.</li><li>При заглушенном двигателе кнопки подогревов серые и не нажимаются, как кнопки климата.</li><li>Отсчёт таймера руля больше не пропадает сам. Если всё же пропадёт — причина видна в настройках, в «Диагностике».</li></ul></details>
+        <details><summary>1.22 — старт-стоп на пустой кнопке руля</summary><ul><li>Для полного привода: пустая кнопка руля переключает старт-стоп той же командой, что значок на панели.</li><li>После нажатия на экране пишется, включён он или выключен, по ответу машины.</li></ul></details>
+        <details><summary>1.21 — «Заставка» и «Отключить экран» в центре управления</summary><ul><li>Две новые плитки: заставка с часами и чёрный экран с подсветкой на минимум.</li><li>Если стоит Экран X70, кнопкой питания управляет он.</li></ul></details>
+        <details><summary>1.20 — окно климата</summary><ul><li>Долгое нажатие на значок обдува: весь климат в одном окне, включая AQS.</li></ul></details>
+        <details><summary>1.19 — логотип закрывает окна</summary><ul><li>При открытом центре управления нажатие на логотип только закрывает его, Android Auto не пропадает.</li></ul></details>
+        <details><summary>1.18 — экран с часами не будится рулём</summary><ul><li>Галочка в разделе «Экран с часами».</li></ul></details>
+        <details><summary>1.15–1.17 — напоминание о телефоне, Bluetooth-музыка</summary><ul><li>«Не забудьте телефон в салоне» живым голосом.</li><li>Автооткрытие Bluetooth-музыки.</li></ul></details>
+        <details><summary>1.13–1.14 — Bluetooth после запуска, перезагрузка ГУ, центр управления</summary><ul><li>Отдельные приложения Bluetooth X70 и Перезагрузка ГУ вошли в Panel X70.</li><li>Центр управления по долгому нажатию на логотип.</li></ul></details>
+        <details><summary>До 1.13 — сама панель</summary><ul><li>Новые значки, уровни сидений, окно температуры, подогрев руля с таймером, зимний режим, кнопка «Назад», пустая кнопка руля.</li></ul></details>
+        <p style="margin-top:18px"><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases">Все версии и файлы</a>. Узнавать о новых: <a href="https://github.com/Oleg-rit/belgee-x70-apps">проект на GitHub</a> → <b>Watch</b> → <b>Custom</b> → <b>Releases</b> → <b>Apply</b>.</p>
+      </article>
+
+      <article class="sec" id="archive"><h3>Архив</h3>
+        <p>Отдельные приложения, из которых выросла Panel X70. Ставятся так же, флешкой.</p>
+        <div class="arch">
+          <div><h4>Экран X70 0.1</h4><p>Что делать по кнопке питания: полностью погасить экран (подсветка на минимум) или показать заставку с часами. Кнопки руля не будят. В Panel X70 то же есть плитками в центре управления; если стоят оба, кнопкой питания управляет Экран X70.</p><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/ScreenX70-install.zip">Установить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/ScreenX70-remove.zip">Удалить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Screen-X70.apk">APK</a></div>
+          <div><h4>Подогрев руля (WheelHeat) 1.0</h4><p>Первое приложение: пустая кнопка на руле включает и выключает подогрев руля. С Panel X70 вместе не ставить, если назначаете пустую кнопку там, иначе сработают оба.</p><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/WheelHeat-install.zip">Установить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/WheelHeat-remove.zip">Удалить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/WheelHeat.apk">APK</a></div>
+          <div><h4>Bluetooth X70 0.2</h4><p>Bluetooth после запуска ГУ: всегда включён, всегда выключен, как в системе или спрашивать. В Panel X70 с версии 1.13; если стоят обе, при запуске ГУ работает эта.</p><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/BTX70-install.zip">Установить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/BTX70-remove.zip">Удалить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/BT-X70.apk">APK</a></div>
+          <div><h4>Перезагрузка ГУ 0.1</h4><p>Перезагрузка ГУ одной кнопкой вместо 15 секунд на сенсоре. Перезапускается только ГУ, машина работает как обычно. В Panel X70 с версии 1.13.</p><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/RebootX70-install.zip">Установить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/RebootX70-remove.zip">Удалить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Reboot-X70.apk">APK</a></div>
+          <div><h4>Рабочий стол X70 0.1 · эксперимент</h4><p>Свой рабочий стол: часы, карточка климата, избранное и все приложения сеткой. Пока обычное приложение со своим значком, штатный рабочий стол не заменяет. Дальше не развивается.</p><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/HomeX70-install.zip">Установить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/HomeX70-remove.zip">Удалить</a><a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Home-X70.apk">APK</a></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- Если что-то не так -->
-<section id="help">
-  <div class="wrap">
-    <div class="feature rev">
-      <figure class="shot media" style="margin:0"><img src="img/set-diag.jpg" width="1200" height="431" loading="lazy" alt="Раздел Диагностика в настройках Panel X70"></figure>
-      <div>
-        <h2>Если что-то не так</h2>
-        <ul>
-          <li>Панель не появилась после установки — заглушите машину, дождитесь, пока погаснет экран, и заведите снова.</li>
-          <li>В настройках Panel X70 внизу есть раздел «Диагностика»: версия, прошивка ГУ и что происходило. Сфотографируйте его или нажмите «Сохранить отчёт» и пришлите в чат клуба.</li>
-          <li>«Назад» не срабатывает — включите службу «Panel X70 — кнопка Назад» в спецвозможностях Android (кнопка есть в настройках).</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Версии -->
-<section id="versions">
-  <div class="wrap">
-    <h2>История версий</h2>
-    <p class="sub">Коротко, что появлялось в Panel X70.</p>
-    <details open><summary>1.25 — пустая кнопка руля открывает приложение <i class="badge ok">Проверено</i></summary>
-      <ul><li>В настройках, в разделе «Пустая кнопка на руле», новый пункт «Открыть приложение» и кнопка «Выбрать приложение» со списком всех установленных.</li><li>Нажатие на руле открывает выбранное приложение, как значок. По просьбе участника клуба.</li></ul></details>
-    <details><summary>1.24 — логотип Geely или Belgee <i class="badge ok">Проверено</i></summary>
-      <ul><li>В настройках, в разделе «Панель», можно выбрать логотип в центре панели: Geely (как было) или Belgee.</li><li>Логотип работает как раньше: нажатие — рабочий стол, долгое нажатие — центр управления.</li></ul></details>
-    <details><summary>1.23 — форсунки и заднее стекло в зимнем режиме <i class="badge ok">Проверено</i></summary>
-      <ul><li>В настройках зимнего режима две новые галочки: форсунки омывателя и заднее стекло. По окончании режим выключает их, только если включал сам. <i class="badge ok">Проверено</i></li><li>При заглушенном двигателе кнопки подогревов серые и не нажимаются, как кнопки климата. <i class="badge ok">Проверено</i></li><li>Отсчёт таймера руля больше не пропадает сам. Если всё же пропадёт — причина видна в настройках, в «Диагностике». <i class="badge ok">Проверено</i></li></ul></details>
-    <details><summary>1.22 — старт-стоп на пустой кнопке руля</summary>
-      <ul><li>Для полного привода: пустая кнопка руля переключает старт-стоп той же командой, что значок на панели.</li><li>После нажатия на экране пишется, включён он или выключен, по ответу машины.</li></ul></details>
-    <details><summary>1.21 — «Заставка» и «Отключить экран» в центре управления</summary>
-      <ul><li>Две новые плитки: заставка с часами и чёрный экран с подсветкой на минимум.</li><li>Если стоит Экран X70, кнопкой питания управляет он.</li></ul></details>
-    <details><summary>1.20 — окно климата</summary>
-      <ul><li>Долгое нажатие на значок обдува: весь климат в одном окне, включая AQS.</li></ul></details>
-    <details><summary>1.19 — логотип закрывает окна</summary>
-      <ul><li>При открытом центре управления нажатие на логотип только закрывает его, Android Auto не пропадает.</li></ul></details>
-    <details><summary>1.18 — экран с часами не будится рулём</summary>
-      <ul><li>Галочка в разделе «Экран с часами».</li></ul></details>
-    <details><summary>1.15–1.17 — напоминание о телефоне, Bluetooth-музыка</summary>
-      <ul><li>«Не забудьте телефон в салоне» живым голосом.</li><li>Автооткрытие Bluetooth-музыки.</li></ul></details>
-    <details><summary>1.13–1.14 — Bluetooth после запуска, перезагрузка ГУ, центр управления</summary>
-      <ul><li>Отдельные приложения Bluetooth X70 и Перезагрузка ГУ вошли в Panel X70.</li><li>Центр управления по долгому нажатию на логотип.</li></ul></details>
-    <details><summary>До 1.13 — сама панель</summary>
-      <ul><li>Новые значки, уровни сидений, окно температуры, подогрев руля с таймером, зимний режим, кнопка «Назад», пустая кнопка руля.</li></ul></details>
-  </div>
-</section>
-<!-- Архив -->
-<section id="archive">
-  <div class="wrap">
-    <h2>Архив: отдельные приложения</h2>
-    <p class="sub">Отдельные приложения: те, из которых выросла Panel X70, и эксперименты. Выкладываем на всякий случай, например, если нужна только одна функция без своей панели.</p>
-    <div class="apps">
-      <div class="app">
-        <h3>Экран X70 <span class="badge ok">0.1</span></h3>
-        <p>Что делать по кнопке питания: полностью погасить экран (подсветка на минимум) или показать заставку с часами. Кнопки руля не будят. В Panel X70 то же есть плитками в центре управления; если стоят оба, кнопкой питания управляет Экран X70.</p>
-        <div class="files">
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/ScreenX70-install.zip">Флешка: установить <span>ZIP · 19 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/ScreenX70-remove.zip">Флешка: удалить <span>ZIP · 1 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Screen-X70.apk">Только APK <span>37 КБ</span></a>
-        </div>
-      </div>
-      <div class="app">
-        <h3>Подогрев руля (WheelHeat) <span class="badge ok">1.0</span></h3>
-        <p>Первое приложение: пустая кнопка на руле включает и выключает подогрев руля. С Panel X70 вместе не ставить, если назначаете пустую кнопку там, иначе сработают оба.</p>
-        <div class="files">
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/WheelHeat-install.zip">Флешка: установить <span>ZIP · 19 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/WheelHeat-remove.zip">Флешка: удалить <span>ZIP · 1 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/WheelHeat.apk">Только APK <span>33 КБ</span></a>
-        </div>
-      </div>
-      <div class="app">
-        <h3>Bluetooth X70 <span class="badge ok">0.2</span></h3>
-        <p>Bluetooth после запуска ГУ: всегда включён, всегда выключен, как в системе или спрашивать. В Panel X70 с версии 1.13; если стоят обе, при запуске ГУ работает эта.</p>
-        <div class="files">
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/BTX70-install.zip">Флешка: установить <span>ZIP · 19 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/BTX70-remove.zip">Флешка: удалить <span>ZIP · 1 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/BT-X70.apk">Только APK <span>37 КБ</span></a>
-        </div>
-      </div>
-      <div class="app">
-        <h3>Перезагрузка ГУ <span class="badge ok">0.1</span></h3>
-        <p>Перезагрузка ГУ одной кнопкой вместо 15 секунд на сенсоре. Перезапускается только ГУ, машина работает как обычно. В Panel X70 с версии 1.13.</p>
-        <div class="files">
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/RebootX70-install.zip">Флешка: установить <span>ZIP · 10 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/RebootX70-remove.zip">Флешка: удалить <span>ZIP · 1 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Reboot-X70.apk">Только APK <span>17 КБ</span></a>
-        </div>
-      </div>
-      <div class="app">
-        <h3>Рабочий стол X70 <span class="badge ok">0.1 · эксперимент</span></h3>
-        <p>Свой рабочий стол: часы, карточка климата, избранное и все приложения сеткой. Пока обычное приложение со своим значком, штатный рабочий стол не заменяет. Дальше не развивается.</p>
-        <div class="files">
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/HomeX70-install.zip">Флешка: установить <span>ZIP · 23 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/HomeX70-remove.zip">Флешка: удалить <span>ZIP · 1 КБ</span></a>
-          <a href="https://github.com/Oleg-rit/belgee-x70-apps/releases/latest/download/Home-X70.apk">Только APK <span>45 КБ</span></a>
-        </div>
-      </div>
-    </div>
-    <p class="note" style="margin-top:14px">Устанавливаются так же, как основные: <a href="#install">флешкой</a>.</p>
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="warnbox" style="margin-bottom:18px">⚠️ Всё ставите на свой страх и риск, гарантий никаких. Приложения не меняют системные файлы ГУ и удаляются флешкой «удалить», но проверены только на прошивке <code>SW0NL3B0411H5177.00115</code>.</div>
-    <p>Любительский проект владельцев Belgee X70. Не связан с Belgee, Geely или Neusoft. Названия и логотипы принадлежат их владельцам.</p>
-  </div>
+<footer class="foot">
+  <p>Всё ставите на свой страх и риск, гарантий никаких. Проверено только на прошивке SW0NL3B0411H5177.00115.</p>
+  <p>Любительский проект владельцев Belgee X70. Не связан с Belgee, Geely или Neusoft. Названия, логотипы и штатные изображения на снимках экрана принадлежат их владельцам. На снимках выдуманные данные.</p>
 </footer>
-
 <dialog id="zoom"><img alt=""></dialog>
 
-<script>
-// Статус функций. Чтобы поменять: ok = проверено в машине, new = проверяем.
-var STATUS = [
-  ['ok',  'Панель и значки',            'f-bar'],
-  ['ok',  'Подогрев сидений, уровни',   'f-heat'],
-  ['ok',  'Подогрев руля с таймером',   'f-wheel'],
-  ['ok',  'Зимний режим',               'f-winter'],
-  ['ok',  'Окно температуры',           'f-temp'],
-  ['ok',  'Центр управления',           'f-control', '1.14'],
-  ['ok',  'Окно климата',               'f-climate', '1.20'],
-  ['ok',  'Логотип закрывает окна',     'f-control', '1.19'],
-  ['ok',  'Заставка / Отключить экран', 'f-control', '1.21'],
-  ['ok',  'Старт-стоп на кнопке руля',  'panel',     '1.22'],
-  ['ok',  'Форсунки и стекло в зимнем режиме', 'f-winter', '1.23'],
-  ['ok',  'Серые подогревы без двигателя', 'f-heat',  '1.23'],
-  ['ok',  'Логотип Geely или Belgee',     'f-bar',   '1.24'],
-  ['ok',  'Пустая кнопка открывает приложение', 'panel', '1.25'],
-  ['ok',  'Экран с часами без руля',    'f-clock',   '1.18'],
-  ['ok',  'Напоминание о телефоне',     'panel',     '1.15'],
-  ['ok',  'Bluetooth после запуска',    'panel',     '1.13'],
-  ['ok',  'Bluetooth-музыка сама',      'panel',     '1.16']
-];
-var box = document.getElementById('statusList');
-STATUS.forEach(function (s) {
-  var d = document.createElement('div');
-  d.className = 'st';
-  d.innerHTML = '<i class="badge ' + s[0] + '">' + (s[0] === 'ok' ? 'Проверено' : 'На проверке') + '</i>' +
-    '<div><a href="#' + s[2] + '">' + s[1] + '</a>' + (s[3] ? '<small>версия ' + s[3] + '</small>' : '') + '</div>';
-  box.appendChild(d);
-});
-// Увеличение фото по нажатию
-var dlg = document.getElementById('zoom'), big = dlg.querySelector('img');
-document.querySelectorAll('.shot img').forEach(function (im) {
-  im.addEventListener('click', function () {
-    if (!dlg.showModal) return;
-    big.src = im.src; big.alt = im.alt; dlg.showModal();
-  });
-});
-dlg.addEventListener('click', function () { dlg.close(); });
-
-// Счётчик скачиваний: GitHub считает загрузки каждого файла во всех релизах.
-// Удаляющие флешки (-remove.zip) не считаем, только установку и APK.
-(function () {
-  function times(n) {
-    var a = n % 10, b = n % 100;
-    return n + ' ' + (a >= 2 && a <= 4 && (b < 12 || b > 14) ? 'раза' : 'раз');
-  }
-  fetch('https://api.github.com/repos/Oleg-rit/belgee-x70-apps/releases?per_page=100')
-    .then(function (r) { if (!r.ok) throw r.status; return r.json(); })
-    .then(function (rels) {
-      var count = {};
-      rels.forEach(function (rel) {
-        (rel.assets || []).forEach(function (a) { count[a.name] = (count[a.name] || 0) + a.download_count; });
-      });
-      var panel = 0;
-      document.querySelectorAll('.app').forEach(function (card) {
-        var sum = 0, any = false;
-        card.querySelectorAll('.files a[href*="/download/"]').forEach(function (a) {
-          var f = a.href.split('/').pop();
-          if (/-remove\.zip$/.test(f)) return;
-          any = true; sum += count[f] || 0;
-        });
-        if (/PanelX70/.test(card.innerHTML)) panel = sum;
-        if (!any || !sum) return; // пока ноль — не показываем
-        var h = card.querySelector('h3'), s = document.createElement('span');
-        s.className = 'dl'; s.innerHTML = 'скачали <b>' + times(sum) + '</b>';
-        h.appendChild(s);
-      });
-      if (panel > 0) {
-        var t = document.getElementById('dlTotal');
-        t.innerHTML = 'Panel X70 уже скачали <b style="color:var(--gold)">' + times(panel) + '</b>.';
-        t.hidden = false;
-      }
-    })
-    .catch(function () { /* нет связи с GitHub: просто без счётчика */ });
-})();
-</script>
+<script src="app.js"></script>
 </body>
 </html>
